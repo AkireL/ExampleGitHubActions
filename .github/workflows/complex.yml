@@ -1,20 +1,21 @@
-name: example_githubactions
+name: complex
 on: push
+
 jobs:
   ubuntu:
     runs-on: ubuntu_latest
     steps:
-      - run: date
+    - run: date
   windows:    
     runs-on: windows_latest
     steps:
-      - run: date
+    - run: date
   macos:
       runs-on: macos_latest
       steps:
-        - run: date
+      - run: date
   otherjob:
+      needs: [ubuntu, windows, macos]
       runs-on: ubuntu_latest
       steps:
-        - run: date
-      needs: [ubuntu, windows, macos]
+      - run: date
